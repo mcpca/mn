@@ -11,7 +11,7 @@ Plays a sound at a regular interval via PulseAudio.
 ```
 
 You can of course change the install directory by specifying a different prefix,
-but make sure that PREFIX is an absolute path, and don't forget to run `clean`
+but make sure that `PREFIX` is an absolute path, and don't forget to run `clean`
 before `install`.
 
 # Changing the sound
