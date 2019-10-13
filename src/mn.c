@@ -35,7 +35,7 @@ void sound_off(void);
 static int parse_bpm(char const *bpm);
 static int set_signal_handler(void);
 
-int g_terminate = 0;
+static int g_terminate = 0;
 static char const *c_tick_file = MN_TICK_FILE_PATH;
 
 int main(int argc, char **argv)
