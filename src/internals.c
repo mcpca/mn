@@ -83,7 +83,7 @@ ssize_t make_loop(size_t tick_n_samples,
 {
 	assert(buf != NULL);
 
-	size_t samples_per_beat = MN_SAMPLE_RATE * (60 / bpm);
+	size_t samples_per_beat = MN_SAMPLE_RATE * (60.0 / bpm);
 	size_t n_samples = samples_per_beat * MN_N_BEATS;
 	*buf = malloc(n_samples * sizeof(uint8_t));
 
