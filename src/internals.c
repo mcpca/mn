@@ -95,10 +95,9 @@ ssize_t make_loop(size_t tick_n_samples,
 	uint8_t silence = 127;
 
 	for (size_t beat = 0; beat < MN_N_BEATS; ++beat)
-		for (size_t sample = 0; sample < samples_per_beat; ++sample) {
+		for (size_t sample = 0; sample < samples_per_beat; ++sample)
 			(*buf)[beat * samples_per_beat + sample] =
 			    (sample < tick_n_samples) ? tick[sample] : silence;
-		}
 
 	return n_samples;
 }
