@@ -18,5 +18,5 @@ before `install`.
 
 The sound played by the metronome is generated at build time and stored in
 unsigned 8-bit format in the `tick.u8` file.
-It is a sine wave with exponential decay, and you can easily tune its parameter
+It is a sine wave with exponential decay, and you can easily tune its parameters
 to your liking by editing `makechirp.c`.
