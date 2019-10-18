@@ -3,7 +3,7 @@
 
 CPPFLAGS= -D_DEFAULT_SOURCE -D_FORTIFY_SOURCE=2
 CFLAGS=-std=c99 -fpie -fno-plt -march=native -mtune=native -Wall -Wextra -Wpedantic
-LDFLAGS=-pie
+LDFLAGS=-pie -Wl,--sort-common,--as-needed,-z,relro,-z,now
 
 ifdef SANITIZE
 	CFLAGS+= -fsanitize=$(SANITIZE)
@@ -24,13 +24,13 @@ BUILDDIR=build
 all: mn tick.u8
 
 mn: $(BUILDDIR)/mn.o $(BUILDDIR)/internals.o $(BUILDDIR)/sound.o
-	$(CC) $(LDFLAGS) -lpulse -lpulse-simple $^ -o $@
+	$(CC) $(LDFLAGS) $^ -lpulse -lpulse-simple -o $@
 
 tick.u8: makechirp
 	./makechirp > $@
 
 makechirp: $(BUILDDIR)/makechirp.o
-	$(CC) $(LDFLAGS) -lm $^ -o $@
+	$(CC) $(LDFLAGS) $^ -lm -o $@
 
 $(BUILDDIR)/%.o: src/%.c | $(BUILDDIR)
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
